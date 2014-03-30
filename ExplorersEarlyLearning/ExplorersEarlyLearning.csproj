@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhilosophyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -136,6 +137,7 @@
     <Content Include="Content\css\layout.css" />
     <Content Include="Content\css\prettyPhoto.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\treenode.css" />
     <Content Include="Content\font\myriadpro-boldcond_0-webfont.svg" />
     <Content Include="Content\font\myriadpro-cond_0.svg" />
     <Content Include="Content\font\pristina.svg" />
@@ -179,6 +181,12 @@
     <Content Include="Content\images\riboon_lft.png" />
     <Content Include="Content\images\riboon_rgt.png" />
     <Content Include="Content\images\trans.png" />
+    <Content Include="Content\images\TreeNode\arrows.png" />
+    <Content Include="Content\images\TreeNode\icons.png" />
+    <Content Include="Content\images\TreeNode\invis.gif" />
+    <Content Include="Content\images\TreeNode\line-end.png" />
+    <Content Include="Content\images\TreeNode\line.png" />
+    <Content Include="Content\images\TreeNode\stripe.png" />
     <Content Include="Content\images\video.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\font\myriadpro-boldcond_0-webfont.eot" />
@@ -206,6 +214,7 @@
     <Content Include="Scripts\liteaccordion-v2.2\js\liteaccordion.jquery.min.js" />
     <Content Include="Scripts\liteaccordion-v2.2\LICENCE.txt" />
     <Content Include="Scripts\liteaccordion-v2.2\README.txt" />
+    <Content Include="Scripts\treenode.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -231,6 +240,8 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\vipul.pubxml" />
     <Content Include="Views\Philosophy\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
