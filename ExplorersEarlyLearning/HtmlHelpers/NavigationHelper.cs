@@ -7,12 +7,29 @@ using System.Web.Routing;
 
 namespace ExplorersEarlyLearning.HtmlHelpers
 {
+    public class MenuItem
+    {
+        public MenuItem() {
+        }
+        
+        public MenuItem(string name, string url, int index) {
+            this.Name = name;
+            this.Url = url;
+            this.Index = index;
+        }
+        public string Name { get; set; }
+        public string Url { get; set; }
+        public int Index { get; set; }
+    }
     public class TabMenuHelper
     {
-        public static IList<String> GetMenuItems()
+        public static IList<MenuItem> GetMenuItems()
         {
-            List<String> menuItems = new List<String>() { 
-                      "Home","philosophy","programs","centers","portfolios","employment","contact us"
+            List<MenuItem> menuItems = new List<MenuItem>() { 
+                      new MenuItem("Home","/Home",1),new MenuItem("Philosophy","/Philosophy",2),
+                      new MenuItem("Programs","/Programs",3),new MenuItem("Centers","#",4),
+                      new MenuItem("Portfolios","/Portfolios",5),new MenuItem("Employment","/Employment",6),
+                      new MenuItem("Contact us","#",7)
                 };
             return menuItems;
         }
@@ -24,23 +41,18 @@ namespace ExplorersEarlyLearning.HtmlHelpers
         {
             var ul = new TagBuilder("ul");
             //var url = new UrlHelper(helper.ViewContext.RequestContext);
-            int i = 1;
+            
             foreach (var item in TabMenuHelper.GetMenuItems())
             {
                 var li = new TagBuilder("li");
                 var anchor = new TagBuilder("a");
-                if (i > 2) {
-                    anchor.MergeAttribute("href", "#");
-                }
-                else
-                {
-                    anchor.MergeAttribute("href", item);
-                }
-                anchor.InnerHtml = item;
-                if (i == selectedIndex) anchor.AddCssClass("active");
+                
+                    anchor.MergeAttribute("href", item.Url);
+                
+                anchor.InnerHtml = item.Name;
+                if (selectedIndex == item.Index) anchor.AddCssClass("active");
                 li.InnerHtml += anchor.ToString();
                 ul.InnerHtml += li.ToString();
-                i++;
             }
             return MvcHtmlString.Create(ul.ToString());
         }
